@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shravani Dandekar</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Apply Font */
+        body {
+            font-family: 'Libre Bodoni', serif;
+            background: radial-gradient(circle at center, #1a1f52, #0c0c3a, #06061e);
+            color: white;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Background Gradient Overlay */
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at bottom, rgba(30, 40, 100, 0.8) 10%, rgba(5, 5, 30, 1) 80%);
+            z-index: -1;
+        }
+
+        /* Bubble Container */
+        .abubble {
+            position: absolute;
+            background-color: transparent;
+            z-index: 2;
+            animation: floatUpDown linear infinite alternate, driftLeftRight ease-in-out infinite alternate;
+        }
+
+        /* Bubble Glow Effect */
+        .innerbubble {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 0 0 100px rgba(90, 120, 255, 0.5);
+            opacity: 0.85;
+        }
+
+        /* Floating animation (up and down) */
+        @keyframes floatUpDown {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-60px); }
+        }
+
+        /* Horizontal drifting effect */
+        @keyframes driftLeftRight {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(50px); }
+        }
+
+        /* Different Bubble Sizes & Positions */
+        .bubble1 { width: 450px; height: 450px; top: 10%; left: 5%; animation-duration: 6s, 5s; }
+        .bubble2 { width: 500px; height: 500px; top: 50%; left: 60%; animation-duration: 8s, 7s; }
+        .bubble3 { width: 400px; height: 400px; bottom: 10%; right: 10%; animation-duration: 7s, 6s; }
+        .bubble4 { width: 550px; height: 550px; bottom: 5%; left: 30%; animation-duration: 9s, 8s; }
+
+        /* Custom Font for Middle Text */
+        .header-text {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen text-white relative">
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Bubble Effects -->
+    <div class="abubble bubble1"><div class="innerbubble"></div></div>
+    <div class="abubble bubble2"><div class="innerbubble"></div></div>
+    <div class="abubble bubble3"><div class="innerbubble"></div></div>
+    <div class="abubble bubble4"><div class="innerbubble"></div></div>
+
+    <!-- Header -->
+    <header class="w-full flex justify-between items-center p-4">
+        <div class="text-sm">SHRAVANI DANDEKAR</div>
+        <nav class="flex space-x-6 text-sm">
+            <a class="hover:underline" href="#">PROJECTS</a>
+            <a class="hover:underline" href="#">ABOUT</a>
+            <a class="hover:underline" href="#">RÉSUMÉ</a>
+            <a class="hover:underline" href="#">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center justify-center flex-grow text-center relative">
+        <div class="relative">
+            <h1 class="header-text text-9xl font-bold relative">
+                Shravani
+            </h1>
+        </div>
+        <p class="mt-4 text-sm max-w-md">
+            HELLO THERE — I'M SHRAVANI, AN AGILE DESIGNER HOPPING ACROSS DIGITAL AND PHYSICAL WORLDS. CURRENTLY CREATING IMPACTFUL VISUAL EXPERIENCES @ 
+            <a class="underline" href="#">TGC EG</a>
+        </p>
+        <button class="mt-8 px-6 py-2 border border-black rounded-full text-sm hover:bg-black hover:text-white transition">
+            SCROLL TO EXPLORE <i class="fas fa-arrow-down"></i>
+        </button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full flex justify-between items-center p-4 text-xs">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-star"></i>
+            <span>INDIA</span>
+        </div>
+    </div>
+    <div id="real-time-clock">Loading time...</div> <!-- Real-time clock container -->
+    <div class="flex space-x-4">
+        <a class="hover:underline" href="#">LINKEDIN</a>
+        <a class="hover:underline" href="#">BEHANCE</a>
+    </div>
+</footer>
+
+<!-- JavaScript for Real-Time Clock -->
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds} GMT-5`;
+        document.getElementById("real-time-clock").textContent = timeString;
+    }
+
+    setInterval(updateClock, 1000); // Update time every second
+    updateClock(); // Call immediately to avoid initial delay
+</script>
+</body>
+</html>
